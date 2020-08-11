@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SKYNET APP</title>
+    </head>
+    <body>
+        <script src="main.js"></script>
+        
+        <h2>File Upload Encryption App</h2>
+
+    <div>
+        <span>Enter SkyKey to Encrypt :</span>
+        <input type="text" id="skykey"> <br> <br>
+        <span>Select File :</span>
+        <input type="file" id="Upload-file"> <br><br>
+        <button onclick="uploadFileEncryption(document.getElementById('Upload-file').files[0])">Upload File</button>
+    </div>
+        <br><br>
+    <div>
+        <span>Enter skylink for download </span>
+        <input type="text" id="Download-file"> <br><br>
+        <button onclick="downloadFileEncryption(document.getElementById('Download-file'))">Download File</button>
+    </div>
+
+    <br><br>
+        <button onclick="createSkykeyExample(document.getElementById('skykey'))"> Create SkyKey </button>
+    </body>
+</html>
