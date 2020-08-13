@@ -4,27 +4,150 @@
     <head>
         <meta charset="utf-8">
         <title>SKYNET APP</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style type="text/css">
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+                "Segoe UI Symbol";
+              color: #4a5568;
+              background-color: #f2f2f2;
+              text-align: center;
+            } 
+        
+            h2 {
+              font-size: 48px;
+              font-weight: 500;
+              margin-top: 40px;
+              margin-bottom: 10px;
+            }
+
+            .textArea{
+                width: 60%;
+                height: 56px;
+                padding: 12px 12px;
+                margin: 8px 0;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: large;
+            }
+        
+            .wrapper {
+              display: flex;
+              height: calc(100vh - 40px);
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            }
+            .span-text {
+                font-size: 20px;
+              font-weight: 300px;
+              margin-top: 40px;
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+        
+            .caps {
+              font-size: 14px;
+              font-weight: 600;
+              text-transform: uppercase;
+              color: #57b560;
+            }
+        
+            .snippet-wrapper {
+              margin-top: 30px;
+              background: #ffffff;
+              box-shadow: 20px 20px 60px #cfcfcf, -20px -20px 60px #ffffff;
+              overflow: hidden;
+              border-radius: 20px;
+            }
+        
+            #snippet {
+              padding: 40px;
+              border: none;
+              background: transparent;
+            }
+        
+            .cta {
+              margin-top: 40px;
+            }
+        
+            .btn {
+              cursor: pointer;
+              display: initial;
+              align-items: center;
+              padding: 20px 40px;
+              background: #57b560;
+              border: none;
+              color: white;
+              font-size: 16px;
+              border-radius: 8px;
+              font-weight: 600;
+            }
+        
+            .btn:hover {
+              background: #59ad61;
+            }
+        
+            .btn:active {
+              background: #57b560;
+            }
+        
+            .btn>svg {
+              padding-right: 8px;
+            }
+        
+            .loading {
+              background: gray !important;
+              cursor: not-allowed;
+            }
+        
+            #skylinks {
+              padding-top: 40px;
+            }
+        
+            #skylinks>a {
+              padding-top: 20px;
+              display: block;
+              color: #4a5568;
+              font-size: 18px;
+            }
+          </style>
     </head>
     <body>
         <script src="main.js"></script>
         
-        <h2>File Upload Encryption App</h2>
+        <h2>File Upload Encryption App</h2> <br><br>
 
-    <div>
-        <span>Enter SkyKey to Encrypt :</span>
-        <input type="text" id="skykey"> <br> <br>
-        <span>Select File :</span>
-        <input type="file" id="Upload-file"> <br><br>
-        <button onclick="uploadFileEncryption(document.getElementById('Upload-file').files[0])">Upload File</button>
-    </div>
+        <button id="upload-Button" onclick="return display('display-Upload')" class="btn"><i class="fa fa-upload"></i>  Upload File</button> &nbsp;&nbsp;&nbsp;
+        <button id="download-Button" onclick="return display('display-Download')" class="btn"><i class="fa fa-download"></i>  Download File</button>
+
         <br><br>
-    <div>
-        <span>Enter skylink for download </span>
-        <input type="text" id="Download-file"> <br><br>
-        <button onclick="downloadFileEncryption(document.getElementById('Download-file'))">Download File</button>
+    <div id="upload" style="display:none">
+        <br><br>
+        <span class ="span-text">Enter SkyKey to Encrypt :</span> <br>
+        <input type="text" id="skykey" class="textArea"> <br> <br>
+        <span class ="span-text"> Select File to Upload :  </span> <br>
+        <input type="file" id="Upload-file" class="textArea">  <br><br>
+        <a id ="skylinkDisplay" href="" class ="span-text"></a> <br> <br>
+        <a id ="skylinkMsg" href="" class ="span-text"></a> <br> <br>  
+        <button onclick="uploadFileEncryption(document.getElementById('Upload-file').files[0],document.getElementById('skykey').value)" class="btn"><i class="fa fa-upload"></i>  Upload File</button>
+        
     </div>
 
-    <br><br>
-        <button onclick="createSkykeyExample(document.getElementById('skykey'))"> Create SkyKey </button>
+        <br><br>
+
+    <div id ="download" style="display:none">
+        <span class ="span-text">Enter Skylink to download file : </span> <br>
+        <input type="text" id="Download-File" class="textArea"> <br><br>
+        <span class ="span-text">Enter SkyKey to Decrypt : </span> <br>
+        <input type="text" id="skykey-download" class="textArea"> <br> <br>
+        <a id ="skylinkMsg2" href="" class ="span-text"></a> <br> <br> 
+        <button onclick="downloadFileEncryption(document.getElementById('Download-File').value,document.getElementById('skykey-download').value)" class="btn"><i class="fa fa-downloads"></i>Download File</button>
+    </div>
+
     </body>
 </html>
