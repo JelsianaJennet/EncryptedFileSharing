@@ -126,14 +126,21 @@
         <button id="download-Button" onclick="return display('display-Download')" class="btn"><i class="fa fa-download"></i>  Download File</button>
 
         <br><br>
+
     <div id="upload" style="display:none">
         <br><br>
-        <span class ="span-text">Enter SkyKey to Encrypt :</span> <br>
-        <input type="text" id="skykey" class="textArea"> <br> <br>
+
+        <span class ="span-text"> For Encryption Upload :  </span>
+        <input type="checkbox" id="encryptionCheck-u" onclick="showEncryption('encryptionCheck-u')"> <br> <br>
+
+        <span class ="span-text" id ="skykey_Text" style="display:none">Enter SkyKey to Encrypt :</span> <br>
+        <input type="text" id="skykey" class="textArea" style="display:none"> <br> <br>
+
         <span class ="span-text"> Select File to Upload :  </span> <br>
         <input type="file" id="Upload-file" class="textArea">  <br><br>
+
         <a id ="skylinkDisplay" href="" class ="span-text"></a> <br> <br>
-        <a id ="skylinkMsg" href="" class ="span-text"></a> <br> <br>  
+         
         <button onclick="uploadFileEncryption(document.getElementById('Upload-file').files[0],document.getElementById('skykey').value)" class="btn"><i class="fa fa-upload"></i>  Upload File</button>
         
     </div>
@@ -141,12 +148,19 @@
         <br><br>
 
     <div id ="download" style="display:none">
+        <span class ="span-text"> To Decrypt Download :  </span>
+        <input type="checkbox" id="encryptionCheck-d" onclick="showEncryption('encryptionCheck-d')"> <br> <br>
+
+        <span class ="span-text" id ="skykey_Text2" style="display:none">Enter SkyKey to Decrypt : </span> <br>
+        <input type="text" id="skykey-download" class="textArea" style="display:none"> <br> <br>
+
         <span class ="span-text">Enter Skylink to download file : </span> <br>
         <input type="text" id="Download-File" class="textArea"> <br><br>
-        <span class ="span-text">Enter SkyKey to Decrypt : </span> <br>
-        <input type="text" id="skykey-download" class="textArea"> <br> <br>
+
         <a id ="skylinkMsg2" href="" class ="span-text"></a> <br> <br> 
+
         <button onclick="downloadFileEncryption(document.getElementById('Download-File').value,document.getElementById('skykey-download').value)" class="btn"><i class="fa fa-downloads"></i>Download File</button>
     </div>
-   </body>
+
+    </body>
 </html>
