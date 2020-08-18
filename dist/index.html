@@ -130,7 +130,7 @@
     <div id="upload" style="display:none">
         <br><br>
 
-        <span class ="span-text"> For Encryption Upload :  </span>
+        <span class ="span-text"> Encrypt Upload :  </span>
         <input type="checkbox" id="encryptionCheck-u" onclick="showEncryption('encryptionCheck-u')"> <br> <br>
 
         <span class ="span-text" id ="skykey_Text" style="display:none">Enter SkyKey to Encrypt :</span> <br>
@@ -139,7 +139,7 @@
         <span class ="span-text"> Select File to Upload :  </span> <br>
         <input type="file" id="Upload-file" class="textArea">  <br><br>
 
-        <a id ="skylinkDisplay" href="" class ="span-text"></a> <br> <br>
+        <a href="" id ="skylinkDisplay" class ="span-text"></a> <br> <br>
          
         <button onclick="uploadFileEncryption(document.getElementById('Upload-file').files[0],document.getElementById('skykey').value)" class="btn"><i class="fa fa-upload"></i>  Upload File</button>
         
