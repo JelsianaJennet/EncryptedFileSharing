@@ -5,8 +5,6 @@ const client = new SkynetClient("https://siasky.net");
 const name = "testcreateskykey";
 
 
-// const myskykey ="skykey:AUI0eAOXWXHwW6KOLyI5O1OYduVvHxAA8qUR_fJ8Kluasb-ykPlHBEjDczrL21hmjhH0zAoQ3-Qq"
-
 window.display = function (show) {
   (async() => {
     if (show == 'display-Upload'){
@@ -58,28 +56,19 @@ window.showEncryption = function(show){
 }
 window.uploadFileEncryption = function(file , skykey) {
 
-if(file == null){
-  this.alert("Please send the file to upload")
-}
+
 
     try {
       (async() => {
-        /*
-        if(skykey == null || skykey == ""){
-          if(document.getElementById('skylinkMsg').text == ""){
-            document.getElementById('skylinkMsg').text = "Please Enter SkyKey or Select Upload again to proceed with deafult Skykey.";
-            return;
-          }
-          else{
-            skykey = "AUI0eAOXWXHwW6KOLyI5O1OYduVvHxAA8qUR_fJ8Kluasb-ykPlHBEjDczrL21hmjhH0zAoQ3-Qq";
-          }      
-          
-        } */
 
-        //const { skylink } = "";
+        if(file == null){
+          alert("Please send the file to upload")
+        }
+        
         document.getElementById('skylinkDisplay').text = "";
         if(skykey == "" && document.getElementById('encryptionCheck-u').checked == true){
           alert("Please Enter the skyKey");
+          return;
         } 
 
         if(skykey == "" && document.getElementById('encryptionCheck-u').checked == false){
@@ -102,23 +91,25 @@ if(file == null){
 
   window.downloadFileEncryption = function(skylink , skykey){
 
-    if(skylink == "" && skykey == ""){
-      alert("Please Enter the SkyKey & SkyLink to download");
-      return;
-    }
-    if(skylink == ""){
-      alert("Please Enter the SkyLink to download");
-      return;
-    }
     
     
 
     try {
       (async () => {
 
+        if(skylink == "" && skykey == ""){
+          alert("Please Enter the SkyKey & SkyLink to download");
+          return;
+        }
+        if(skylink == ""){
+          alert("Please Enter the SkyLink to download");
+          return;
+        }       
+
         document.getElementById('skylinkMsg2').text = "";
         if(skykey == "" && document.getElementById('encryptionCheck-d').checked == true){
           alert("Please Enter the skyKey");
+          return;
         } 
     
         if(skykey == "" && document.getElementById('encryptionCheck-d').checked == false){
@@ -134,3 +125,4 @@ if(file == null){
       console.log(error)
     }
   }
+
