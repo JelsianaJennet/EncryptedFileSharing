@@ -4,7 +4,6 @@ import { SkynetClient } from "skynet-js";
 const client = new SkynetClient("https://siasky.net");
 const name = "testcreateskykey";
 
-
 window.display = function (show) {
   (async() => {
     if (show == 'display-Upload'){
@@ -56,8 +55,6 @@ window.showEncryption = function(show){
 }
 window.uploadFileEncryption = function(file , skykey) {
 
-
-
     try {
       (async() => {
 
@@ -74,15 +71,16 @@ window.uploadFileEncryption = function(file , skykey) {
         if(skykey == "" && document.getElementById('encryptionCheck-u').checked == false){
           const { skylink } = await client.upload(file);
           document.getElementById('skylinkDisplay').text = "Skylink : " + skylink;
+          document.getElementById('skylinkDisplay').href = "https://siasky.net/" + skylink;
           console.log(`Upload successful, skylink: ${skylink}`);
         } 
         else{
           const { skylink } = await client.upload(file,{skykey : skykey});
           document.getElementById('skylinkDisplay').text = "Skylink : " + skylink;
+          document.getElementById('skylinkDisplay').href = "https://siasky.net/" + skylink;
           console.log(`Upload successful, skylink: ${skylink}`);
         }
-        
-        
+               
       }) ();
     } catch (error) {
       console.log(error);
@@ -90,10 +88,6 @@ window.uploadFileEncryption = function(file , skykey) {
   }
 
   window.downloadFileEncryption = function(skylink , skykey){
-
-    
-    
-
     try {
       (async () => {
 
@@ -126,3 +120,4 @@ window.uploadFileEncryption = function(file , skykey) {
     }
   }
 
+ 
